@@ -3,60 +3,34 @@
     padding: 0 0;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+.img-responsive{
+    width: 100%;
+}
+.img-curve{
+    border-radius: 16px;
+}
 
 /* search */
 .food-search{
     background-color: #e74c3c;
-    height: 10vh;
-}
-.search{
-    margin-bottom: auto;
-    margin-top: auto;
-    height: 70px;
-    background-color: #fff;
-    border-radius: 40px;
-    padding: 10px;
-    }
-
-    .search_input{
-    color: black;
-    border: 0;
-    outline: 0;
-    background: none;
-    width: 0;
-    margin-top:5px;
-    caret-color:transparent;
-    line-height: 40px;
-    transition: width 0.4s linear;
-    }
-
-    .search .search_input{
-    padding: 0 10px;
-    width: 550px;
-    caret-color:red;
-    transition: width 0.4s linear;
-    }
-    
-    .search:hover > .search_icon{
-    background: red;
-    color: #fff;
-    }
-
-    .search_icon{
-    height: 50px;
-    width: 50px;
-    float: right;
+    height: 15vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    color:white;
-    background-color:black;
-    }
-    
-a:link{
-    text-decoration:none;
+}
+.btn:hover{
+    color:#fff;
+}
+
+.input-text:focus{
+       
+  
+    box-shadow: 0px 0px 0px;
+    border-color:#f8c146;
+    outline: 0px;
+}
+
+.form-control {
+    border: 1px solid #f8c146;
 } 
 /* search end */
 /* categories start */
@@ -73,9 +47,33 @@ a:link{
     background-color: transparent;
 }
 .card:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .trans-bg{
     background-color: rgba(0, 0, 0, 0.5);
 }
 /* categories end*/
+/* food menu start */
+.food-menu{
+    background-color: #ececec;
+    padding: 4%;
+}
+.food-menu-box{
+    border: 1px solid black;
+    width: 100%;
+    margin: 1%;
+    padding: 1%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.food-menu-img{
+    width: 20%;
+}
+.food-menu-desc{
+    width: 70%;
+
+}
+/* food menu end */
