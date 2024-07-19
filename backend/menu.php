@@ -3,71 +3,26 @@
         <div class="container">
             <h2>Food Menu</h2>
             <div class="row">
+                <?php
+                $rows=$pdo->query("select * from `menus`")->fetchAll(PDO::FETCH_ASSOC);
+                foreach($rows as $row){
+                ?>
                 <div class="col-12 col-lg-6">
                     <div class="food-menu-box">
                         <div class="food-menu-img">
-                            <img src="./images/01.jpg" alt="" class="img-responsive img-curve">
+                            <img src="./images/<?=$row['img']?>" alt="" class="img-responsive img-curve">
                         </div>
                         <div class="food-menu-desc">
-                            <h4>Food Title</h4>
-                            <p>price</p>
-                            <p>desc</p>
-                            <a href="#" class="btn btn-primary">Change Menu</a>
+                            <h4><?=$row['title']?></h4>
+                            <p><?=$row['price']?></p>
+                            <p><?=$row['desc']?></p>
+                            <a href="?do=change_menu&id=<?=$row['id']?>" class="btn btn-primary">Change Menu</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6">
-                    <div class="food-menu-box">
-                        <div class="food-menu-img">
-                            <img src="./images/01.jpg" alt="" class="img-responsive img-curve">
-                        </div>
-                        <div class="food-menu-desc">
-                            <h4>Food Title</h4>
-                            <p>price</p>
-                            <p>desc</p>
-                            <a href="#" class="btn btn-primary">Change Menu</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="food-menu-box">
-                        <div class="food-menu-img">
-                            <img src="./images/01.jpg" alt="" class="img-responsive img-curve">
-                        </div>
-                        <div class="food-menu-desc">
-                            <h4>Food Title</h4>
-                            <p>price</p>
-                            <p>desc</p>
-                            <a href="#" class="btn btn-primary">Change Menu</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="food-menu-box">
-                        <div class="food-menu-img">
-                            <img src="./images/01.jpg" alt="" class="img-responsive img-curve">
-                        </div>
-                        <div class="food-menu-desc">
-                            <h4>Food Title</h4>
-                            <p>price</p>
-                            <p>desc</p>
-                            <a href="#" class="btn btn-primary">Change Menu</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="food-menu-box">
-                        <div class="food-menu-img">
-                            <img src="./images/01.jpg" alt="" class="img-responsive img-curve">
-                        </div>
-                        <div class="food-menu-desc">
-                            <h4>Food Title</h4>
-                            <p>price</p>
-                            <p>desc</p>
-                            <a href="#" class="btn btn-primary">Change Menu</a>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </section>
