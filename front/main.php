@@ -1,4 +1,6 @@
-
+<?php
+include "./api/db.php";
+?>
     <!-- food search start -->
     <section class="food-search text-center">
         <div class="container justify-content-center">
@@ -28,47 +30,26 @@
     <section class="container text-center mt-3" id="explore">
         <h2>Explore Food</h2>
         <div class="row mt-3">
+            <?php
+            $rows=$Explore->all();
+            foreach($rows as $row){
+            ?>
             <div class="col-12 col-lg-4">
                 <div class="card m-auto" style="width:400px">
-                    <img class="card-img-top" src="../images/01.jpg" alt="Card image" style="width:100%">
+                    <img class="card-img-top" src="../images/<?=$row['img']?>" alt="Card image" style="width:100%">
                     <div class="card-img-overlay text-bottom">
                         <div class="trans-bg">
-                            <h4 class="card-title">John Doe</h4>
-                            <p class="card-text">Some example text some example text. John Doe is an architect and
-                                engineer
+                            <h4 class="card-title"><?=$row['title']?></h4>
+                            <p class="card-text"><?=$row['text']?>
                             </p>
                             <a href="#" class="btn btn-primary">See Profile</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-4">
-                <div class="card m-auto" style="width:400px">
-                    <img class="card-img-top" src="../images/02.jpg" alt="Card image" style="width:100%">
-                    <div class="card-img-overlay text-bottom">
-                        <div class="trans-bg">
-                            <h4 class="card-title">John Doe</h4>
-                            <p class="card-text">Some example text some example text. John Doe is an architect and
-                                engineer
-                            </p>
-                            <a href="#" class="btn btn-primary">See Profile</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4">
-                <div class="card m-auto" style="width:400px">
-                    <img class="card-img-top" src="../images/03.jpg" alt="Card image" style="width:100%">
-                    <div class="card-img-overlay text-bottom">
-                        <div class="trans-bg">
-                            <h4 class="card-title">John Doe</h4>
-                            <p class="card-text">Some example text some example text. John Doe is an architect and
-                                engineer
-                            </p>
-                            <a href="#" class="btn btn-primary">See Profile</a>
-                        </div>
-                    </div>
-                </div>
+            <?php
+            }
+            ?>
             </div>
     </section>
     <!-- categories end -->
@@ -77,72 +58,27 @@
         <div class="container">
             <h2>Food Menu</h2>
             <div class="row">
+            <?php
+            $rows=$Menu->all();
+            foreach($rows as $row){
+            ?>
                 <div class="col-12 col-lg-6">
                     <div class="food-menu-box">
                         <div class="food-menu-img">
-                            <img src="./images/01.jpg" alt="" class="img-responsive img-curve">
+                            <img src="./images/<?=$row['img']?>" alt="" class="img-responsive img-curve">
                         </div>
                         <div class="food-menu-desc">
-                            <h4>Food Title</h4>
-                            <p>price</p>
-                            <p>desc</p>
+                            <h4><?=$row['title']?></h4>
+                            <p><?=$row['price']?></p>
+                            <p><?=$row['desc']?></p>
                             <a href="#" class="btn btn-primary">order now</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6">
-                    <div class="food-menu-box">
-                        <div class="food-menu-img">
-                            <img src="./images/01.jpg" alt="" class="img-responsive img-curve">
-                        </div>
-                        <div class="food-menu-desc">
-                            <h4>Food Title</h4>
-                            <p>price</p>
-                            <p>desc</p>
-                            <a href="#" class="btn btn-primary">order now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="food-menu-box">
-                        <div class="food-menu-img">
-                            <img src="./images/01.jpg" alt="" class="img-responsive img-curve">
-                        </div>
-                        <div class="food-menu-desc">
-                            <h4>Food Title</h4>
-                            <p>price</p>
-                            <p>desc</p>
-                            <a href="#" class="btn btn-primary">order now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="food-menu-box">
-                        <div class="food-menu-img">
-                            <img src="./images/01.jpg" alt="" class="img-responsive img-curve">
-                        </div>
-                        <div class="food-menu-desc">
-                            <h4>Food Title</h4>
-                            <p>price</p>
-                            <p>desc</p>
-                            <a href="#" class="btn btn-primary">order now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="food-menu-box">
-                        <div class="food-menu-img">
-                            <img src="./images/01.jpg" alt="" class="img-responsive img-curve">
-                        </div>
-                        <div class="food-menu-desc">
-                            <h4>Food Title</h4>
-                            <p>price</p>
-                            <p>desc</p>
-                            <a href="#" class="btn btn-primary">order now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <?php
+            }
+            ?>
+                
         </div>
     </section>
     <!-- food-menu end -->

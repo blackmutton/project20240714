@@ -30,9 +30,9 @@ dd($_FILES);
 if(!empty($_FILES['img']['tmp_name'])){
     $img=$_FILES['img']['name'];
     move_uploaded_file($_FILES['img']['tmp_name'],"../images/".$img);
-    $_POST['img']=$img;
+    /* $_POST['img']=$img;
     $tmp=a2s($_POST);
-    dd($tmp);
+    dd($tmp); */
     /* Array
 (
     [0] => `title`='88'
@@ -42,11 +42,14 @@ if(!empty($_FILES['img']['tmp_name'])){
     [4] => `img`='03.jpg'
 ) */
  
-$sql="update `menus` set " . join(",",$tmp);
+/* $sql="update `menus` set " . join(",",$tmp);
 $sql.=" where `id`='{$_POST['id']}'";
-$pdo->exec($sql);
+$pdo->exec($sql); */
+$_POST['img']=$_FILES['img']['name'];
+dd($_POST);
+$Menu->save($_POST);
 }
 
-// header("location:../admin.php?do=menu");
+to("../admin.php?do=menu");
 
 ?>

@@ -27,9 +27,9 @@ dd($_FILES);
 if(!empty($_FILES['img']['tmp_name'])){
     $img=$_FILES['img']['name'];
     move_uploaded_file($_FILES['img']['tmp_name'],"../images/".$img);
-    $_POST['img']=$img;
+    /* $_POST['img']=$img;
     $tmp=a2s($_POST);
-    dd($tmp);
+    dd($tmp); */
  /*    Array
 (
     [0] => `title`='1'
@@ -37,11 +37,15 @@ if(!empty($_FILES['img']['tmp_name'])){
     [2] => `id`='1'
     [3] => `img`='Predator_Wallpaper_01_3840x2400.jpg'
 ) */
-$sql="update `explore` set " . join(",",$tmp);
+/* $sql="update `explore` set " . join(",",$tmp);
 $sql.=" where `id`='{$_POST['id']}'";
-$pdo->exec($sql);
+$pdo->exec($sql); */
+$_POST['img']=$_FILES['img']['name'];
+
+dd($_POST);
+$Explore->save($_POST);
 }
 
-header("location:../admin.php");
+to("../admin.php");
 
 ?>

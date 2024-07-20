@@ -1,6 +1,5 @@
-<form action="./api/edit_content.php" method="post" enctype="multipart/form-data">
+<form action="./api/edit_menu.php" method="post" enctype="multipart/form-data">
   <div class="mb-3 mt-3">
-    <img src="../images/{$$_GET['id']}" alt="">
     <label for="img" class="form-label">Image:</label>
     <input type="file" class="form-control" id="img" name="img">
   </div>
@@ -9,10 +8,13 @@
     <input type="text" class="form-control" id="title" name="title">
   </div>
   <div class="mb-3">
-    <label for="text" class="form-label">Text:</label>
-    <input type="text" class="form-control" id="text" name="text">
+    <label for="price" class="form-label">Price:</label>
+    <input type="number" class="form-control" id="price" name="price">
   </div>
-  <input type="hidden" name="id" value="<?=$_GET['id']?>">
+  <div class="mb-3">
+    <label for="desc" class="form-label">Desc:</label>
+    <input type="text" class="form-control" id="desc" name="desc">
+  </div>
   <button type="submit">submit</button>
 </form>
 

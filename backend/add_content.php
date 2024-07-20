@@ -12,7 +12,6 @@
     <label for="text" class="form-label">Text:</label>
     <input type="text" class="form-control" id="text" name="text">
   </div>
-  <input type="hidden" name="id" value="<?=$_GET['id']?>">
   <button type="submit">submit</button>
 </form>
 

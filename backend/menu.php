@@ -4,7 +4,7 @@
             <h2>Food Menu</h2>
             <div class="row">
                 <?php
-                $rows=$pdo->query("select * from `menus`")->fetchAll(PDO::FETCH_ASSOC);
+                $rows=$Menu->all();
                 foreach($rows as $row){
                 ?>
                 <div class="col-12 col-lg-6">
@@ -17,12 +17,20 @@
                             <p><?=$row['price']?></p>
                             <p><?=$row['desc']?></p>
                             <a href="?do=change_menu&id=<?=$row['id']?>" class="btn btn-primary">Change Menu</a>
+                            <a href="?do=delete_menu&id=<?=$row['id']?>" class="btn btn-primary">Delete Menu</a>
                         </div>
                     </div>
                 </div>
                 <?php
                 }
                 ?>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="trans-bg">
+                    <a href="?do=add_menu" class="btn btn-primary">Add Menu</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
