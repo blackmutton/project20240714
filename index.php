@@ -25,13 +25,13 @@
                     <a class="nav-link active" href="?do=main">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#explore">Explore Food</a>
+                    <a class="nav-link" href="?do=main#explore">Explore Food</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#food-menu">Food Menu</a>
+                    <a class="nav-link" href="?do=main#food-menu">Food Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#footer">Contact</a>
+                    <a class="nav-link" href="?do=main#footer">Contact</a>
                 </li>
             </ul>
 
