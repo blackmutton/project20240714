@@ -72,7 +72,8 @@ class DB{
         }else{
             $sql.=" where `id` ='$arg'";
         }
-        return $this->pdo->exec($arg);
+        // echo $sql;
+        return $this->pdo->exec($sql);
     }
 
     public function save($arg){
