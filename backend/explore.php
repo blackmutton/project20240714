@@ -4,7 +4,7 @@
     <h2>Explore Food</h2>
     <div class="row mt-3">
     <?php
-            $rows=$Explore->all();
+            $rows=${ucfirst($do)}->all();
             foreach($rows as $row){
             ?>
             <div class="col-12 col-lg-4">

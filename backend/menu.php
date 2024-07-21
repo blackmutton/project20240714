@@ -4,7 +4,7 @@
             <h2>Food Menu</h2>
             <div class="row">
                 <?php
-                $rows=$Menu->all();
+                $rows=${ucfirst($do)}->all();
                 foreach($rows as $row){
                 ?>
                 <div class="col-12 col-lg-6">
