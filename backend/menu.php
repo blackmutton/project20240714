@@ -17,7 +17,7 @@
                             <p><?=$row['price']?></p>
                             <p><?=$row['desc']?></p>
                             <a href="?do=change_menu&id=<?=$row['id']?>" class="btn btn-primary">Change Menu</a>
-                            <a href="?do=delete_menu&id=<?=$row['id']?>" class="btn btn-primary">Delete Menu</a>
+                            <button href="?do=delete_menu&id=<?=$row['id']?>" class="btn btn-primary del" data-id="<?=$row['id']?>" data-do="<?=$do?>">Delete Menu</button>
                         </div>
                     </div>
                 </div>
