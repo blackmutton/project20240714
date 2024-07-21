@@ -1,5 +1,5 @@
 <!-- food-menu start -->
-<section class="food-menu mt-4 text-center">
+<section class="food-menu text-center">
         <div class="container">
             <h2>Food Menu</h2>
             <div class="row">
@@ -25,6 +25,8 @@
                 }
                 ?>
             </div>
+        </div>
+        <div class="container mt-2">
             <div class="row">
                 <div class="col-12">
                     <div class="trans-bg">
