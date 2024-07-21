@@ -35,9 +35,10 @@ include "./api/db.php";
             foreach($rows as $row){
             ?>
             <div class="col-12 col-lg-4">
-                <div class="card m-auto" style="width:400px">
-                    <img class="card-img-top" src="../images/<?=$row['img']?>" alt="Card image" style="width:100%">
-                    <div class="card-img-overlay text-bottom">
+                <div class="card m-auto overHidden" style="width:400px">
+                    <img class="card-img-top" src="../images/<?=$row['img']?>" alt="Card image" style="width:100%" id="img-<?=$row['id']?>">
+                    <!-- html對大小寫不敏感，因此若是設data-bottomId會被抓成data-bottomid -->
+                    <div class="card-img-overlay text-bottom" data-bottom-id ="<?=$row['id']?>">
                         <div class="trans-bg">
                             <h4 class="card-title"><?=$row['title']?></h4>
                             <p class="card-text"><?=$row['text']?>
@@ -96,3 +97,24 @@ include "./api/db.php";
         </div>
     </section>
     <!-- social end -->
+
+    <script>
+        $(document).ready(function(){
+
+        const grayBg = $(".text-bottom");
+        const imgs = $(".card-img-top");
+        grayBg.hover(function(){
+            // this需在事件內才可生效
+            console.log($(this));
+            const bottomId = $(this).data("bottom-id");
+            console.log("bottomId: ", bottomId);
+            const img = $(`#img-${bottomId}`);
+            console.log("img: ", img);
+            img.addClass("imgBig");
+        }, function(){
+            const bottomId = $(this).data("bottom-id");
+            const img = $(`#img-${bottomId}`);
+            img.removeClass("imgBig");
+        })
+    })
+    </script>

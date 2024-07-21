@@ -8,9 +8,9 @@
             foreach($rows as $row){
             ?>
             <div class="col-12 col-lg-4">
-                <div class="card m-auto" style="width:400px">
-                    <img class="card-img-top" src="../images/<?=$row['img']?>" alt="Card image" style="width:100%">
-                    <div class="card-img-overlay text-bottom">
+                <div class="card m-auto overHidden" style="width:400px">
+                    <img class="card-img-top" src="../images/<?=$row['img']?>" alt="Card image" style="width:100%" id="img-<?=$row['id']?>">
+                    <div class="card-img-overlay text-bottom" data-bottom-id ="<?=$row['id']?>">
                         <div class="trans-bg">
                             <h4 class="card-title"><?=$row['title']?></h4>
                             <p class="card-text"><?=$row['text']?>
