@@ -16,7 +16,7 @@
                             <h4><?=$row['title']?></h4>
                             <p><?=$row['price']?></p>
                             <p><?=$row['desc']?></p>
-                            <a href="?do=change_menu&id=<?=$row['id']?>" class="btn btn-primary">Change Menu</a>
+                            <a href="?do=change_menu&id=<?=$row['id']?>&table=<?=ucfirst($do)?>" class="btn btn-primary">Change Menu</a>
                             <button href="?do=delete_menu&id=<?=$row['id']?>" class="btn btn-primary del" data-id="<?=$row['id']?>" data-do="<?=$do?>">Delete Menu</button>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="trans-bg">
-                    <a href="?do=add_menu" class="btn btn-primary">Add Menu</a>
+                    <a href="?do=add_menu&table=<?=ucfirst($do)?>" class="btn btn-primary">Add Menu</a>
                     </div>
                 </div>
             </div>

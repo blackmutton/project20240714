@@ -3,11 +3,12 @@ include "db.php";
 dd($_POST);
 /* Array
 (
-    [title] => 1
-    [text] => 01
+    [title] => 99
+    [text] => 77
     [id] => 1
-    [img] =>Predator_Wallpaper_01_3840x2400.jpg        
-) */
+    [table] => Explore
+)
+ */
 dd($_FILES);
 /* Array
 (
@@ -22,6 +23,7 @@ dd($_FILES);
         )
 
 ) */
+$db=$_POST['table'];
 
 
 if(!empty($_FILES['img']['tmp_name'])){
@@ -43,9 +45,11 @@ $pdo->exec($sql); */
 $_POST['img']=$_FILES['img']['name'];
 
 dd($_POST);
-$Explore->save($_POST);
 }
+unset($_POST['table']);
+${$db}->save($_POST);
+$do=mb_strtolower($db);
 
-to("../admin.php");
+to("../admin.php?do=$do");
 
 ?>
