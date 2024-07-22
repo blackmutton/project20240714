@@ -4,11 +4,11 @@ $(document).ready(function(){
     const imgs = $(".card-img-top");
     grayBg.hover(function(){
         // this需在事件內才可生效
-        console.log($(this));
+        // console.log($(this));
         const bottomId = $(this).data("bottom-id");
-        console.log("bottomId: ", bottomId);
+        // console.log("bottomId: ", bottomId);
         const img = $(`#img-${bottomId}`);
-        console.log("img: ", img);
+        // console.log("img: ", img);
         img.addClass("imgBig");
     }, function(){
         const bottomId = $(this).data("bottom-id");

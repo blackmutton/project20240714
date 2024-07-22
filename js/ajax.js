@@ -22,7 +22,7 @@ $(document).ready(function(){
          data:data,
          // dataType:"json",
          success: function(res){
-             console.log('res',res)
+            //  console.log('res',res)
              window.location.reload();
 
          }, error: function(err){
