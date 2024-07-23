@@ -23,7 +23,7 @@ include "./api/db.php";
     <!-- navbar start -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-center">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="./images/01.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
             </a>
             <ul class="navbar-nav">
@@ -35,6 +35,9 @@ include "./api/db.php";
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?do=menu">Food Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?do=footer">Footer</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?do=logout">Logout</a>
@@ -53,13 +56,6 @@ include "./api/db.php";
         include "./backend/explore.php";
     }
     ?>
-    <!-- footer start -->
-    <section class="footer">
-        <div class="container text-center">
-            <p>All rights perserved by tong.</p>
-        </div>
-    </section>
-    <!-- footer end -->
 </body>
 
 </html>

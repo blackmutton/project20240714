@@ -107,3 +107,4 @@ function dd($arg){
 }
 $Explore=new DB('explore');
 $Menu=new DB('menus');
+$Footer=new DB('footers');

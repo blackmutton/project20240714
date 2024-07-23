@@ -48,13 +48,6 @@
         include "./front/main.php";
     }
     ?>
-    <!-- footer start -->
-    <section class="footer" id="footer">
-        <div class="container text-center">
-            <p>All rights perserved by tong.</p>
-        </div>
-    </section>
-    <!-- footer end -->
 </body>
 
 </html>
