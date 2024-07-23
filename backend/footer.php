@@ -4,6 +4,13 @@
     <label for="footer" class="form-label">Footer:</label>
     <?php
         $footer=${ucfirst($do)}->find(1)['footer'];
+        /* dd($footer);
+        Array
+        (
+            [id] => 1
+            [footer] => All rights perserved by tong.
+        ) */
+
     ?>
     <input type="text" name="footer" id="footer" value="<?=$footer?>">
     </div>
