@@ -1,3 +1,4 @@
+<h2 class="text-center">Add Menu</h2>
 <form action="./api/edit_all.php" method="post" enctype="multipart/form-data">
   <div class="mb-3 mt-3">
     <label for="img" class="form-label">Image:</label>
@@ -13,9 +14,9 @@
   </div>
   <div class="mb-3">
     <label for="desc" class="form-label">Desc:</label>
-    <input type="text" class="form-control" id="desc" name="desc">
+    <textarea type="text" class="form-control" name="desc" id="desc" rows="5" cols="33"></textarea>
     <input type="hidden" name="table" value="<?=$_GET['table']?>">
   </div>
-  <button type="submit">submit</button>
+  <button type="submit" class="btn btn-outline-primary">submit</button>
 </form>
 
