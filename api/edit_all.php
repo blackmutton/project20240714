@@ -9,7 +9,7 @@ dd($_POST);
     [table] => Explore
 )
  */
-dd($_FILES);
+// dd($_FILES);
 /* Array
 (
     [img] => Array
@@ -24,6 +24,10 @@ dd($_FILES);
 
 ) */
 $db=$_POST['table'];
+if(isset($_POST['footer'])){
+    $_POST['footer'] = nl2br($_POST['footer']);
+}
+dd($_POST);
 
 
 if(!empty($_FILES['img']['tmp_name'])){
@@ -44,7 +48,7 @@ $sql.=" where `id`='{$_POST['id']}'";
 $pdo->exec($sql); */
 $_POST['img']=$_FILES['img']['name'];
 
-dd($_POST);
+// dd($_POST);
 }
 unset($_POST['table']);
 ${$db}->save($_POST);
