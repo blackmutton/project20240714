@@ -31,6 +31,9 @@ include "./api/db.php";
                     <a class="nav-link active" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="?do=user">Manage Account</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="?do=explore">Explore Food</a>
                 </li>
                 <li class="nav-item">
@@ -48,12 +51,12 @@ include "./api/db.php";
     </nav>
     <!-- navbar end -->
     <?php
-    $do=$_GET['do']??'explore';
+    $do=$_GET['do']??'user';
     $file="./backend/{$do}.php";
     if(file_exists($file)){
         include $file;
     }else{
-        include "./backend/explore.php";
+        include "./backend/user.php";
     }
     ?>
 </body>
