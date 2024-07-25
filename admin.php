@@ -40,7 +40,7 @@ include "./api/db.php";
                     <a class="nav-link" href="?do=footer">Footer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?do=logout">Logout</a>
+                    <a class="nav-link" href="./api/logout.php">Logout</a>
                 </li>
             </ul>
 
