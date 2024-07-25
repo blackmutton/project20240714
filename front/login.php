@@ -1,21 +1,64 @@
-<form action="/action_page.php" method="post">
-  <div class="mb-3 mt-3">
-    <label for="name" class="form-label">UserName:</label>
-    <input type="text" class="form-control" id="name" placeholder="Enter username" name="name">
-  </div>
-  <div class="mb-3">
-    <label for="pwd" class="form-label">Password:</label>
-    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-  </div>
-    <div class="mb-3">
-        <button onclick="login()">login</button>
-        <button onclick="clear()">reset</button>
-    </div>
-    <div>
-        <a href="?do=forgot">忘記密碼</a>
-        <a href="?do=reg">尚未註冊</a>
-    </div>
-</form>
+<fieldset style="width:60%;margin:20px auto">
+  <legend>會員登入</legend>
+  <table>
+    <tr>
+      <td>帳號:</td>
+      <td><input type="text" name="acc" id="acc"></td>
+    </tr>
+    <tr>
+      <td>密碼：</td>
+      <td><input type="password" name="pw" id="pw"></td>
+    </tr>
+    <tr>
+      <td>
+        <button onclick="login()" class="btn btn-primary">登入</button>
+        <button onclick="clean()" class="btn btn-warning">清除</button>
+    </td>
+      <td>
+      <a href="?do=forgot">忘記密碼</a>
+      <a href="?do=reg">尚未註冊</a>
+      </td>
+    </tr>
+  </table>
+</fieldset>
 <script>
+function login(){
+  $.ajax({
+    type:"post",
+    url:"./api/chk_acc.php",
+    data:{acc:$("#acc").val()
+    },
+    success:function(chkAcc){
+      // console.log('chkAcc',chkAcc)
+      if(Number(chkAcc)==1){
+        $.ajax({
+          type:"post",
+          url:"./api/chk_pwd.php",
+          data:{
+            acc:$("#acc").val(),
+            pwd:$("#pw").val()
+          },success:(chkPw)=>{
+            if(Number(chkPw)){
+              if($("#acc").val()=='admin'){
+                location.href="admin.php"
+              }else{
+                location.href="index.php"
+              }
+            }else{
+              // console.log('chkPw',chkPw)
+              alert("密碼錯誤")
+            }
+          }
+        })
+      }else{
+        alert("查無帳號")
+      }
+    }, error: function(err){
+             console.log("err: ", err)
+         }
+  })
+}
+function clean(){
 
+}
 </script>

@@ -1,6 +1,3 @@
-<?php
-include "./api/db.php";
-?>
     <!-- food search start -->
     <section class="food-search text-center">
         <div class="container justify-content-center">

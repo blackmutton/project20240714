@@ -1,3 +1,6 @@
+<?php
+include "./api/db.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +21,7 @@
     <!-- navbar start -->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-center">
         <div class="container-fluid">
-            <a class="navbar-brand" href="?do=login">
+            <a class="navbar-brand" href="index.php">
                 <img src="./images/01.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
             </a>
             <ul class="navbar-nav">
@@ -33,6 +36,17 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?do=main#footer">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <?php
+                    if(isset($_SESSION['user'])){
+                        echo "<span class='nav-link' style='color:white'>Welcome, {$_SESSION['user']}</span>";
+                        echo "<button onclick='location.href=&#39;./api/logout.php&#39;' class='btn btn-primary'>登出</button>";
+                    }else{
+                        
+                       echo "<a class='nav-link' href='?do=login'>Login</a>";
+                    }
+                    ?>
                 </li>
             </ul>
 

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class DB{
     protected $table;
     protected $dsn="mysql:host=localhost;charset=utf8;dbname=project20240714";
@@ -49,7 +49,8 @@ class DB{
         if(isset($arg[1])){
             $sql.=$arg[1];
         }
-        return $this->pdo->query($sql)->fetchColumn;
+        // echo $sql;
+        return $this->pdo->query($sql)->fetchColumn();
     }
 
     public function find($arg){
@@ -108,3 +109,4 @@ function dd($arg){
 $Explore=new DB('explore');
 $Menu=new DB('menus');
 $Footer=new DB('footers');
+$User=new DB('users');
