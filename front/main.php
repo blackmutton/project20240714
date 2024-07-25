@@ -10,7 +10,7 @@ include "./api/db.php";
                 <div class="col-md-8">
 
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control input-text" placeholder="Search products...."
+                        <input id="myInput"  type="text" class="form-control input-text" placeholder="Search products...."
                             aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-outline-warning btn-lg" type="button"><i
@@ -68,10 +68,10 @@ include "./api/db.php";
                         <div class="food-menu-img">
                             <img src="./images/<?=$row['img']?>" alt="" class="img-responsive img-curve">
                         </div>
-                        <div class="food-menu-desc">
+                        <div class="food-menu-desc text-start">
                             <h4><?=$row['title']?></h4>
-                            <p><?=$row['price']?></p>
-                            <p><?=$row['desc']?></p>
+                            <p>price:$<?=$row['price']?></p>
+                            <p>desc:<?=nl2br($row['desc'])?></p>
                             <a href="#" class="btn btn-primary">order now</a>
                         </div>
                     </div>
@@ -97,3 +97,34 @@ include "./api/db.php";
         </div>
     </section>
     <!-- social end -->
+    <!-- footer start -->
+    <section class="footer" id="footer">
+        <div class="container text-center">
+            <?php
+            $rows=$Footer->all();
+            foreach($rows as $row){
+            ?>
+                <p><?=$row['footer']?></p>
+            <?php
+            }
+            ?>
+        </div>
+    </section>
+    <!-- footer end -->
+    <script>
+$(document).ready(function(){
+    const input=$("#myInput");
+    // 當輸入框內容改變時執行此函數
+    input.on("keyup", function() {
+    const value = $(this).val().toLowerCase();
+    const items=$(".col-12")
+
+    // 過濾網頁中的品項
+    items.filter(function() {
+        // $(this).text().toLowerCase()：獲取當前.col-12中的所有文本，並將其轉換為小寫。
+        // 如果indexOf找到value，它會返回value在文本中的位置（從0開始的索引）。如果沒有找到，則返回-1。
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
