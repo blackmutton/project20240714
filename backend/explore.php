@@ -17,7 +17,7 @@
                             </p>
                             <a href="?do=change_content&id=<?=$row['id']?>&table=<?=ucfirst($do)?>" class="btn btn-primary">Change Content</a>
                             <!-- 因為有被include到admin.php所以可抓到$do -->
-                            <button data-id="<?=$row['id']?>" data-do="<?=$do?>" class="btn btn-primary del">Delete Content</button>
+                            <button data-id="<?=$row['id']?>" data-do="<?=$do?>" class="btn btn-danger del">Delete Content</button>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
             <div class="row text-center">
                 <div class="col-12">
                     <div class="trans-bg">
-                    <a href="?do=add_content&table=<?=ucfirst($do)?>" class="btn btn-primary">Add Content</a>
+                    <a href="?do=add_content&table=<?=ucfirst($do)?>" class="btn btn-success">Add Content</a>
                     </div>
                 </div>
             </div>
