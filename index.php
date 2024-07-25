@@ -40,7 +40,7 @@ include "./api/db.php";
                 <li class="nav-item">
                     <?php
                     if(isset($_SESSION['user'])){
-                        echo "<span class='nav-link' style='color:white'>Welcome, {$_SESSION['user']}</span>";
+                        echo "<a href='admin.php' class='nav-link'>Welcome, {$_SESSION['user']}</a>";
                         echo "<button onclick='location.href=&#39;./api/logout.php&#39;' class='btn btn-primary'>登出</button>";
                     }else{
                         
