@@ -32,7 +32,8 @@
 <script>
   function user_del(){
     let chks=$("input[type='checkbox']:checked")
-    console.log('chks',chks)
+    // console.log('chks',chks)
+    // chks是object，所以無法使用foreach
     let ids=new Array()
     
     if(chks.length>0){
