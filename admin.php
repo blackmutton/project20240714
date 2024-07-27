@@ -24,7 +24,7 @@ include "./api/db.php";
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-center">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
-                <img src="./images/01.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
+                <img src="./images/01.jpg" alt="Logo" style="width:50px;" class="rounded-pill">
             </a>
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -43,7 +43,7 @@ include "./api/db.php";
                     <a class="nav-link" href="?do=footer">Footer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./api/logout.php">Logout</a>
+                <button onclick="location.href='./api/logout.php'" class='btn btn-primary'>Logout</button>
                 </li>
             </ul>
 

@@ -69,7 +69,14 @@
                             <h4><?=$row['title']?></h4>
                             <p>price:$<?=$row['price']?></p>
                             <p>desc:<?=nl2br($row['desc'])?></p>
-                            <a href="#" class="btn btn-primary">order now</a>
+                            <?php
+                            if(isset($_SESSION['user'])){
+
+                                echo "<a href='?do=order' class='btn btn-primary'>order now</a>";
+                            }else{
+                                echo "<a href='?do=login' style='text-decoration:none'>Login to order!</a>";
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
