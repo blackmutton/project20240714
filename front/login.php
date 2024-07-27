@@ -58,7 +58,4 @@ function login(){
          }
   })
 }
-function clean(){
-
-}
 </script>

@@ -66,6 +66,7 @@ function reg(){
             }
         })
     }
+    clean();
 
 }
 </script>
