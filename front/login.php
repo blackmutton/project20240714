@@ -1,26 +1,22 @@
-<fieldset style="width:60%;margin:20px auto">
-  <legend>會員登入</legend>
-  <table>
-    <tr>
-      <td>帳號:</td>
-      <td><input type="text" name="acc" id="acc"></td>
-    </tr>
-    <tr>
-      <td>密碼：</td>
-      <td><input type="password" name="pw" id="pw"></td>
-    </tr>
-    <tr>
-      <td>
-        <button onclick="login()" class="btn btn-primary">登入</button>
-        <button onclick="clean()" class="btn btn-warning">清除</button>
-    </td>
-      <td>
-      <a href="?do=forgot">忘記密碼</a>
-      <a href="?do=reg">尚未註冊</a>
-      </td>
-    </tr>
-  </table>
-</fieldset>
+<div class="container mt-3">
+  <h2 class=text-center>會員登入</h2>
+    <div class="mt-3">
+      <label class="form-label" for="acc">帳號:</label>
+      <input class="form-control" type="text" name="acc" id="acc">
+    </div>
+    <div class="mt-3">
+      <label class="form-label" for="acc">密碼:</label>
+      <input class="form-control" type="password" name="pw" id="pw" class="form-control" >
+    </div>
+    <div class="mt-3 text-end">
+      
+        <button class="btn btn-primary mx-1" onclick="login()">登入</button>
+        <button class="btn btn-warning" onclick="clean()">清除</button>
+        <a href="?do=forgot">忘記密碼</a>
+        <a href="?do=reg">尚未註冊</a>
+    </div>
+
+</div>
 <script>
 function login(){
   $.ajax({

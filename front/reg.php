@@ -1,36 +1,31 @@
-<style>
-    td{
-    text-align-last:justify
-}
-</style>
-<fieldset  class="text-center">
-    <legend>會員註冊</legend>
-    <div style="color:red">請設定您要註冊的帳號及密碼</div>
-    <table class="mx-auto">
-        <tr>
-            <td>登入帳號:</td>
-            <td><input type="text" name="acc" id="acc"></td>
-        </tr>
-        <tr>
-            <td>登入密碼:</td>
-            <td><input type="password" name="pw" id="pw"></td>
-        </tr>
-        <tr>
-            <td>再次確認密碼:</td>
-            <td><input type="password" name="pw2" id="pw2"></td>
-        </tr>
-        <tr>
-            <td>信箱(忘記密碼時使用):</td>
-            <td><input type="email" name="email" id="email"></td>
-        </tr>
-        <tr>   
-            <td>
-                <button onclick="reg()" class="btn btn-primary">註冊</button>
-                <button onclick="clean()" class="btn btn-warning">清除</button>
-            </td>          
-            </tr>
-        </table>
-</fieldset>
+<div class="container mt-3">
+    <h2 class=text-center>會員註冊</h2>
+    <div class=text-center style="color:red">請設定您要註冊的帳號及密碼</div>
+    
+      <div class="mt-3">
+        <label class="form-label" for="acc">登入帳號:</label>
+        <input class="form-control" type="text" name="acc" id="acc">
+      </div>
+      <div class="mt-3">
+        <label class="form-label" for="pw">登入密碼:</label>
+        <input class="form-control" type="password" name="pw" id="pw" class="form-control" >
+      </div>
+      <div class="mt-3">
+        <label class="form-label" for="pw2">再次確認密碼:</label>
+        <input class="form-control" type="password" name="pw2" id="pw2" class="form-control" >
+      </div>
+      <div class="mt-3">
+        <label class="form-label" for="email">信箱(忘記密碼時使用):</label>
+        <input class="form-control" type="password" name="email" id="email" class="form-control" >
+      </div>
+      <div class="mt-3 text-end">
+        
+        <button onclick="reg()" class="btn btn-primary">註冊</button>
+        <button onclick="clean()" class="btn btn-warning">清除</button>
+        
+      </div>
+    
+  </div>
 <script>
 function reg(){
     let user={
@@ -60,13 +55,14 @@ function reg(){
                         success:(res)=>{
                             // console.log(res)
                             alert("註冊完成，歡迎加入")
+                            clean();
+                            
                         }
                     })
                 }
             }
         })
     }
-    clean();
 
 }
 </script>
