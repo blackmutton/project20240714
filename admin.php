@@ -1,5 +1,13 @@
 <?php
 include "./api/db.php";
+if (isset($_POST['acc'])) {
+    if ($_POST['acc'] == "admin" && $_POST['pw'] == '1234') {
+      $_SESSION['login'] = 1;
+    } else {
+      $error = "帳號或密碼錯誤";
+    }
+  }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,44 +28,8 @@ include "./api/db.php";
 </head>
 
 <body>
-    <!-- navbar start -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-center">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
-                <img src="./images/01.jpg" alt="Logo" style="width:50px;" class="rounded-pill">
-            </a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="?do=user">Manage Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="?do=explore">Explore Food</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="?do=menu">Food Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="?do=footer">Footer</a>
-                </li>
-                <li class="nav-item">
-                <button onclick="location.href='./api/logout.php'" class='btn btn-primary'>Logout</button>
-                </li>
-            </ul>
-
-        </div>
-    </nav>
-    <!-- navbar end -->
     <?php
-    $do=$_GET['do']??'user';
-    $file="./backend/{$do}.php";
-    if(file_exists($file)){
-        include $file;
-    }else{
-        include "./backend/user.php";
-    }
+    include "backend/main.php";
     ?>
 </body>
 
