@@ -58,7 +58,7 @@ if (isset($_SESSION['login'])) {
     </div>
     <div class="mt-3">
       <label class="form-label" for="acc">密碼:</label>
-      <input class="form-control" type="password" name="pw" id="pw" class="form-control" >
+      <input class="form-control" type="password" name="pwd" id="pw" class="form-control" >
     </div>
     <div class="mt-3 text-end">
       
