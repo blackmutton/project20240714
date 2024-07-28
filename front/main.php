@@ -40,7 +40,6 @@
                             <h4 class="card-title"><?=$row['title']?></h4>
                             <p class="card-text"><?=$row['text']?>
                             </p>
-                            <a href="#" class="btn btn-primary">See Profile</a>
                         </div>
                     </div>
                 </div>
