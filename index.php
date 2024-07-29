@@ -71,6 +71,8 @@ include "./api/db.php";
         include "./front/main.php";
     }
     ?>
+    <!-- top按鈕 -->
+    <a href="#" id="topBtn" class="btn btn-danger btn-lg position-fixed bg-dark bottom-0 end-0 mb-3 me-3" role="button">TOP</a>
     <script>
         // 由於在modal/order.php宣告會發生重複宣告錯誤，所以先在外面宣告
         let addModal
