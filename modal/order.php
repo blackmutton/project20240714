@@ -30,7 +30,7 @@ $order = $Menu->find($_POST['id']);
                         <div class="mt-3">
                             <label class="form-label" for="total">總價:</label>
                             <input class="form-control total" type="hidden" id="total">
-                            <span class="total" id="restart"></span>元
+                            <span class="total" id="restart"><?= $order['price'] ?></span>元
                         </div>
                         <div class="mt-3">
                             <label class="form-label" for="order_date">訂購日期:</label>
