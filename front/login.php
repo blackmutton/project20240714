@@ -12,7 +12,7 @@
       
         <button class="btn btn-primary mx-1" onclick="login()">登入</button>
         <button class="btn btn-warning" onclick="clean()">清除</button>
-        <a href="?do=forgot">忘記密碼</a>
+        <a href="?do=forget">忘記密碼</a>
         <a href="?do=reg">尚未註冊</a>
     </div>
 
