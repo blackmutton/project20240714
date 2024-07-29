@@ -1,112 +1,123 @@
 <?php
 session_start();
-class DB{
+class DB
+{
     protected $table;
-    protected $dsn="mysql:host=localhost;charset=utf8;dbname=project20240714";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=project20240714";
     protected $pdo;
 
-    public function __construct($table){
-        $this->table=$table;
-        $this->pdo=new PDO($this->dsn,'root','');
+    public function __construct($table)
+    {
+        $this->table = $table;
+        $this->pdo = new PDO($this->dsn, 'root', '');
     }
 
-    protected function a2s($arg){
-        $tmp=[];
-        foreach($arg as $key=>$value){
-            $tmp[]="`$key`='$value'";
+    protected function a2s($arg)
+    {
+        $tmp = [];
+        foreach ($arg as $key => $value) {
+            $tmp[] = "`$key`='$value'";
         }
         return $tmp;
     }
 
-    public function all(...$arg){
-        $sql="select * from `$this->table`";
+    public function all(...$arg)
+    {
+        $sql = "select * from `$this->table`";
 
-        if(isset($arg[0])){
-            if(is_array($arg[0])){
-                $tmp=$this->a2s($arg[0]);
-                $sql.=" where ".join(" && ",$tmp);
-            }else{
-                $sql.=$arg[0];
+        if (isset($arg[0])) {
+            if (is_array($arg[0])) {
+                $tmp = $this->a2s($arg[0]);
+                $sql .= " where " . join(" && ", $tmp);
+            } else {
+                $sql .= $arg[0];
             }
         }
-        if(isset($arg[1])){
-            $sql.=$arg[1];
+        if (isset($arg[1])) {
+            $sql .= $arg[1];
         }
 
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function count(...$arg){
-        $sql="select count(*) from `$this->table`";
-        if(isset($arg[0])){
-            if(is_array($arg[0])){
-                $tmp=$this->a2s($arg[0]);
-                $sql.=" where " .join(" && ",$tmp);
-            }else{
-                $sql.=$arg[0];
+    public function count(...$arg)
+    {
+        $sql = "select count(*) from `$this->table`";
+        if (isset($arg[0])) {
+            if (is_array($arg[0])) {
+                $tmp = $this->a2s($arg[0]);
+                $sql .= " where " . join(" && ", $tmp);
+            } else {
+                $sql .= $arg[0];
             }
         }
-        if(isset($arg[1])){
-            $sql.=$arg[1];
+        if (isset($arg[1])) {
+            $sql .= $arg[1];
         }
         // echo $sql;
         return $this->pdo->query($sql)->fetchColumn();
     }
 
-    public function find($arg){
-        $sql="select * from `$this->table`";
+    public function find($arg)
+    {
+        $sql = "select * from `$this->table`";
 
-        if(is_array($arg)){
-            $tmp=$this->a2s($arg);
-            $sql.=" where ".join(" && ",$tmp);
-        }else{
-            $sql.=" where `id` ='$arg'";
+        if (is_array($arg)) {
+            $tmp = $this->a2s($arg);
+            $sql .= " where " . join(" && ", $tmp);
+        } else {
+            $sql .= " where `id` ='$arg'";
         }
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function del($arg){
-        $sql="delete from `$this->table`";
-        if(is_array($arg)){
-            $tmp=$this->a2s($arg);
-            $sql.=" where ".join(" && ",$tmp);
-        }else{
-            $sql.=" where `id` ='$arg'";
+    public function del($arg)
+    {
+        $sql = "delete from `$this->table`";
+        if (is_array($arg)) {
+            $tmp = $this->a2s($arg);
+            $sql .= " where " . join(" && ", $tmp);
+        } else {
+            $sql .= " where `id` ='$arg'";
         }
         // echo $sql;
         return $this->pdo->exec($sql);
     }
 
-    public function save($arg){
-        if(isset($arg['id'])){
-            $id=$arg['id'];
+    public function save($arg)
+    {
+        if (isset($arg['id'])) {
+            $id = $arg['id'];
             unset($arg['id']);
-            $tmp=$this->a2s($arg);
-            $sql="update `$this->table` set".join(",",$tmp);
-            $sql.=" where `id` ='{$id}'";
-        }else{
-            $keys=array_keys($arg);
-            $sql="insert into `$this->table` (`".join("`,`",$keys)."`) values('".join("','",$arg)."')";
+            $tmp = $this->a2s($arg);
+            $sql = "update `$this->table` set" . join(",", $tmp);
+            $sql .= " where `id` ='{$id}'";
+        } else {
+            $keys = array_keys($arg);
+            $sql = "insert into `$this->table` (`" . join("`,`", $keys) . "`) values('" . join("','", $arg) . "')";
         }
         return $this->pdo->exec($sql);
     }
-
 }
 
-function q($sql){
-    $dsn="mysql:host=localhost;charset=utf8;dbname=project20240714";
-    $pdo=new PDO($dsn,'root','');
+function q($sql)
+{
+    $dsn = "mysql:host=localhost;charset=utf8;dbname=project20240714";
+    $pdo = new PDO($dsn, 'root', '');
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
-function to($url){
-    header("location:".$url);
+function to($url)
+{
+    header("location:" . $url);
 }
-function dd($arg){
+function dd($arg)
+{
     echo "<pre>";
     print_r($arg);
     echo "</pre>";
 }
-$Explore=new DB('explore');
-$Menu=new DB('menus');
-$Footer=new DB('footers');
-$User=new DB('users');
+$Explore = new DB('explore');
+$Menu = new DB('menus');
+$Footer = new DB('footers');
+$User = new DB('users');
+$Order = new DB('orders');

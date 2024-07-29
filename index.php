@@ -20,10 +20,10 @@ include "./api/db.php";
 
 <body>
     <!-- navbar start -->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark text-center">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-center">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
-                <img src="./images/01.jpg" alt="Logo" style="width:50px;"class="rounded-pill">
+                <img src="./images/01.jpg" alt="Logo" style="width:50px;" class="rounded-pill">
             </a>
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -40,20 +40,20 @@ include "./api/db.php";
                 </li>
                 <li class="nav-item">
                     <?php
-                    if(isset($_SESSION['user'])){
-                        switch ($_SESSION['user']){
+                    if (isset($_SESSION['user'])) {
+                        switch ($_SESSION['user']) {
                             case "admin":
                                 echo "<a href='admin.php' class='nav-link'>Welcome, {$_SESSION['user']}</a>";
 
                                 break;
                             default:
-                            echo "<a href='index.php' class='nav-link'>Welcome, {$_SESSION['user']}</a>";
-                            break;
+                                echo "<a href='index.php' class='nav-link'>Welcome, {$_SESSION['user']}</a>";
+                                break;
                         }
                         echo "<button onclick='location.href=&#39;./api/logout.php&#39;' class='btn btn-primary'>Logout</button>";
-                    }else{
-                        
-                       echo "<a class='nav-link' href='?do=login'>Login</a>";
+                    } else {
+
+                        echo "<a class='nav-link' href='?do=login'>Login</a>";
                     }
                     ?>
                 </li>
@@ -63,14 +63,19 @@ include "./api/db.php";
     </nav>
     <!-- navbar end -->
     <?php
-    $do=$_GET['do']??'main';
-    $file="./front/{$do}.php";
-    if(file_exists($file)){
+    $do = $_GET['do'] ?? 'main';
+    $file = "./front/{$do}.php";
+    if (file_exists($file)) {
         include $file;
-    }else{
+    } else {
         include "./front/main.php";
     }
     ?>
+    <script>
+        // 由於在modal/order.php宣告會發生重複宣告錯誤，所以先在外面宣告
+        let addModal
+        let modal
+    </script>
 </body>
 
 </html>
