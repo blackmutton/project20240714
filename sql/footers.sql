@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-07-23 07:47:42
+-- 產生時間： 2024-07-29 08:20:02
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -37,7 +37,7 @@ CREATE TABLE `footers` (
 --
 
 INSERT INTO `footers` (`id`, `footer`) VALUES
-(1, 'All rights perserved by tong.');
+(1, 'All rights perserved by tong<br />\r\n<br />\r\n<br />\r\nbye bye');
 
 --
 -- 已傾印資料表的索引

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-07-20 13:25:26
+-- 產生時間： 2024-07-29 08:20:10
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -39,12 +39,9 @@ CREATE TABLE `explore` (
 --
 
 INSERT INTO `explore` (`id`, `img`, `title`, `text`) VALUES
-(1, '03.jpg', '66', '666'),
+(1, '03.jpg', '5555', '888'),
 (2, '02.jpg', 'title2', 'text2'),
-(3, '03.jpg', 'title3', 'text3'),
-(4, '02.jpg', '9999', '9999'),
-(5, '03.jpg', '555', '99'),
-(6, '01.jpg', '99', '777');
+(7, '01.jpg', '11', '11');
 
 --
 -- 已傾印資料表的索引
@@ -64,7 +61,7 @@ ALTER TABLE `explore`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `explore`
 --
 ALTER TABLE `explore`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
