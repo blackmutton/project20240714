@@ -1,3 +1,4 @@
+// 刪除user以外的ajax，用在後台
 $(document).ready(function(){
 
     const del=$(".del");

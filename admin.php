@@ -1,5 +1,6 @@
 <?php
 include "./api/db.php";
+// 保護後台的機制，除非為管理員帳密，否則都不可進入後台
 if (isset($_POST['acc'])) {
     if ($_POST['acc'] == "admin" && $_POST['pwd'] == '1234') {
       $_SESSION['login'] = 1;

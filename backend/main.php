@@ -1,4 +1,5 @@
 <?php
+// 如果直接到後台，需先登入管理員帳號，並且在admin.php得到$_SESSION['login']，才可看到後台
 if (isset($_SESSION['login'])) {
 
 ?>
@@ -45,19 +46,20 @@ if (isset($_SESSION['login'])) {
 
 <?php
 } else {
+    // $error由admin.php得到
     if (isset($error)) {
         echo "<div style='color:red;text-align:center'>$error</div>";
     }
 ?>
 <div class="container mt-3">
-  <h2 class=text-center>會員登入</h2>
+  <h2 class=text-center>管理員登入</h2>
   <form action="?" method='post'>
     <div class="mt-3">
       <label class="form-label" for="acc">帳號:</label>
       <input class="form-control" type="text" name="acc" id="acc">
     </div>
     <div class="mt-3">
-      <label class="form-label" for="acc">密碼:</label>
+      <label class="form-label" for="pwd">密碼:</label>
       <input class="form-control" type="password" name="pwd" id="pw" class="form-control" >
     </div>
     <div class="mt-3 text-end">

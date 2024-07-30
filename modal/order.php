@@ -7,10 +7,12 @@ $order = $Menu->find($_POST['id']);
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <!-- modal的表頭 -->
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form class='form-group mx-auto col-6 mt-5'>
+                    <!-- 表單內容 -->
                     <div class="container mt-3">
                         <h2 class=text-center>訂單</h2>
                         <div class="mt-3">
@@ -55,6 +57,7 @@ $order = $Menu->find($_POST['id']);
                         </div>
 
                     </div>
+                    <!-- 表單內容結束 -->
                 </form>
             </div>
         </div>

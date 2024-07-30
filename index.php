@@ -40,6 +40,7 @@ include "./api/db.php";
                 </li>
                 <li class="nav-item">
                     <?php
+                    // 在api/chk_pwd.php有設定$_SESSION['user']
                     if (isset($_SESSION['user'])) {
                         switch ($_SESSION['user']) {
                             case "admin":
