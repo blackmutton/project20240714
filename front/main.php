@@ -54,7 +54,13 @@
             <h2>Food Menu</h2>
             <div class="row">
                 <?php
-                $rows = $Menu->all();
+                // 分頁功能
+                $total = $Menu->count();
+                $div=6;
+                $pages=ceil($total/$div);
+                $now=$_GET['p']??1;
+                $start=($now-1)*$div;
+                $rows=$Menu->all(" limit $start,$div");
                 foreach ($rows as $row) {
                 ?>
                     <div class="col-12 col-lg-6">
@@ -84,7 +90,29 @@
                 <?php
                 }
                 ?>
-
+                <div class="col-12 text-center">
+                            <!-- 頁碼 -->
+                            <?php
+                            if($now-1>=1){
+                                $prev=$now-1;
+                                echo "<a href='?do=main&p=$prev#food-menu' style='text-decoration:none'>";
+                                echo "<";
+                                echo "</a>";
+                            }
+                            for($i=1;$i<=$pages;$i++){
+                                $size=($i==$now)?"24px":"18px";
+                                echo "<a href='?do=main&p=$i#food-menu' style='font-size:$size; text-decoration:none'>";
+                                echo $i;
+                                echo "</a>";
+                            }
+                            if($now+1<=$pages){
+                                $next=$now+1;
+                                echo "<a href='?do=main&p=$next#food-menu' style='text-decoration:none'>";
+                                echo ">";
+                                echo "</a>";
+                            }
+                            ?>
+                        </div>
             </div>
     </section>
     <!-- food-menu end -->
