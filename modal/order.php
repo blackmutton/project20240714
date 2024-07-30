@@ -29,7 +29,7 @@ $order = $Menu->find($_POST['id']);
                         </div>
                         <div class="mt-3">
                             <label class="form-label" for="total">總價:</label>
-                            <input class="form-control total" type="hidden" id="total">
+                            <input class="form-control total" type="number" id="total" value="<?= $order['price'] ?>">
                             <span class="total" id="restart"><?= $order['price'] ?></span>元
                         </div>
                         <div class="mt-3">
@@ -77,8 +77,13 @@ $order = $Menu->find($_POST['id']);
         }
         $.post("../api/order_ajax.php", form, (res) => {
             // console.log(res);
-            alert('訂購成功')
-            addModal.hide()
+            if(form.quantity==''||form.order_date==''||form.customer_name==''||form.customer_contact==''||form.customer_address==''){
+            alert("不可空白")
+    }else{
+
+        alert('訂購成功')
+        addModal.hide()
+    }
         })
     }
 
