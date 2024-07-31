@@ -90,19 +90,21 @@
     <!-- footer end -->
     <script>
         // 送訂單用的function
-        $(document).ready(function() {
+        /* $(document).ready(function() {
             const order = $(".order");
-            order.click(function() {
-                console.log('$(this)', $(this))
+            // 因為變動態加載，所以需要改成$(document).on("click", order, function()
+            $(document).on("click", order, function() {
+                // console.log('$(this)', $(this))
                 let nowBtn = $(this);
                 const id = nowBtn.data("id")
                 const data = {
                     'id': id
                 }
-                $('#modal').load('./modal/order.php', data)
+                console.log('data', data)
+                // $('#modal').load('./modal/order.php', data)
             })
 
-        })
+        }) */
 
         // 搜尋網站內容用的
         $(document).ready(function() {
@@ -135,7 +137,12 @@
                     success: function(data) {
                         $("#menu-content").html(data.content);
                         $("#pagination").html(data.pagination);
-
+                        // 動態綁定order點擊事件，並跟取得分頁內容的ajax連動
+                        // 移除之前綁定的點擊事件，然後重新綁定事件，否則表單會重複載入
+                        $(document).off("click", ".order").on("click", ".order", function() {
+                            let orderId = $(this).data('id');
+                            loadOrderModal(orderId);
+                        });
                     },
                     error: function(err) {
                         console.log("err: ", err)
@@ -155,5 +162,21 @@
                 let page = $(this).data("page");
                 loadMoreContent(page);
             });
+            // 載入表單內容
+            function loadOrderModal(orderId) {
+                $.ajax({
+                    url: "./modal/order.php",
+                    type: "POST",
+                    data: {
+                        id: orderId
+                    },
+                    success: function(res) {
+                        $("#modal").html(res);
+                    },
+                    error: function(err) {
+                        console.log("err: ", err)
+                    }
+                });
+            }
         });
     </script>
