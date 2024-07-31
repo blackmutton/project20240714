@@ -52,15 +52,68 @@
     <section class="food-menu mt-4 text-center" id="food-menu">
         <div class="container">
             <h2>Food Menu</h2>
-            <div class="row" id="menu-content">
-                <!-- 初始内容將通過AJAX加載 -->
+            <div class="row">
+                <?php
+                // 分頁功能
+                $total = $Menu->count();
+                $div=6;
+                $pages=ceil($total/$div);
+                $now=$_GET['p']??1;
+                $start=($now-1)*$div;
+                $rows=$Menu->all(" limit $start,$div");
+                foreach ($rows as $row) {
+                ?>
+                    <div class="col-12 col-lg-6">
+                        <div class="food-menu-box">
+                            <div class="food-menu-img">
+                                <img src="./images/<?= $row['img'] ?>" alt="" class="img-responsive img-curve">
+                            </div>
+                            <div class="food-menu-desc text-start">
+                                <h4><?= $row['title'] ?></h4>
+                                <p>price:$<?= $row['price'] ?></p>
+                                <p>desc:<?= nl2br($row['desc']) ?></p>
+                                <?php
+                                if (isset($_SESSION['user'])) {
+                                ?>
+                                    <a class='btn btn-primary order' data-id="<?= $row['id']; ?>">order now</a>
+                                <?php
+                                } else {
+                                    echo "<a href='?do=login' style='text-decoration:none'>Login to order!</a>";
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <div id="modal">
+
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
+                <div class="col-12 text-center">
+                            <!-- 頁碼 -->
+                            <?php
+                            if($now-1>=1){
+                                $prev=$now-1;
+                                echo "<a href='?do=main&p=$prev#food-menu' style='text-decoration:none'>";
+                                echo "<";
+                                echo "</a>";
+                            }
+                            for($i=1;$i<=$pages;$i++){
+                                $size=($i==$now)?"24px":"18px";
+                                echo "<a href='?do=main&p=$i#food-menu' style='font-size:$size; text-decoration:none'>";
+                                echo $i;
+                                echo "</a>";
+                            }
+                            if($now+1<=$pages){
+                                $next=$now+1;
+                                echo "<a href='?do=main&p=$next#food-menu' style='text-decoration:none'>";
+                                echo ">";
+                                echo "</a>";
+                            }
+                            ?>
+                        </div>
             </div>
-            <div class="col-12 text-center">
-                <div id="pagination">
-                    <!-- 頁碼按鈕將通過AJAX加載 -->
-                </div>
-            </div>
-        </div>
     </section>
     <!-- food-menu end -->
     <!-- social start -->
@@ -118,42 +171,6 @@
                     // 如果indexOf找到value，它會返回value在文本中的位置（從0開始的索引）。如果沒有找到，則返回-1。
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
-            });
-        });
-
-        // 在menu區中加載內容用的ajax
-        $(document).ready(function() {
-
-            function loadMoreContent(page = 1) {
-                $.ajax({
-                    url: "./api/see_more.php",
-                    type: "GET",
-                    data: {
-                        p: page
-                    },
-                    dataType: "json",
-                    success: function(data) {
-                        $("#menu-content").html(data.content);
-                        $("#pagination").html(data.pagination);
-
-                    },
-                    error: function(err) {
-                        console.log("err: ", err)
-                    }
-                });
-            }
-
-            // 初始加載內容
-            loadMoreContent();
-
-            // 處理分頁點擊事件
-            // $("#pagination a").on("click", function(e){}只能適用於綁定時已經存在於DOM的元素
-            // 如果點擊的元素是動態加載(如ajax)產生，則必須透過$(document).on("click", "#pagination a", function(e) {}來綁定，否則只會拿到初始資料
-            $(document).on("click", "#pagination a", function(e) {
-                // 阻止默認的連結跳轉行為，這樣點擊時才不會跳轉或刷新頁面。
-                e.preventDefault();
-                let page = $(this).data("page");
-                loadMoreContent(page);
             });
         });
     </script>
