@@ -15,6 +15,7 @@ include "./api/db.php";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./js/hover.js"></script>
+    <script src="./js/ajax.js"></script>
     <script src="./js/js.js"></script>
 </head>
 
@@ -37,6 +38,9 @@ include "./api/db.php";
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?do=main#footer">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?do=buycart">Buycart</a>
                 </li>
                 <li class="nav-item">
                     <?php

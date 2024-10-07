@@ -51,6 +51,8 @@ $pdo->exec($sql); */
     // dd($_POST);
 }
 unset($_POST['table']);
+$_SESSION['cart']=$_POST;
+$_POST['user']=$_SESSION['user'];
 ${$db}->save($_POST);
 $do = mb_strtolower($db);
 
