@@ -24,6 +24,9 @@ if (isset($_SESSION['login'])) {
                     <a class="nav-link" href="?do=menu">Food Menu</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="?do=order">Order</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="?do=footer">Footer</a>
                 </li>
                 <li class="nav-item">
